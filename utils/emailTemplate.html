@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Reminder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            /* Gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            /* Full screen height */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .header {
+            text-align: center;
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            position: relative;
+        }
+
+        .header img {
+            width: 120px;
+            border-radius: 50%;
+        }
+
+        .header h1 {
+            margin: 10px 0 0 0;
+            font-size: 26px;
+        }
+
+        .content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .content h2 {
+            font-size: 22px;
+            color: #333;
+        }
+
+        .content p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .task-details {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid #eaeaea;
+            color: #999;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1024px) {
+
+            /* Tablet view (landscape and portrait) */
+            .container {
+                padding: 15px;
+            }
+
+            .header {
+                padding: 15px;
+            }
+
+            .header img {
+                width: 100px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content p {
+                font-size: 15px;
+            }
+
+            .task-details {
+                padding: 12px;
+                margin: 15px 0;
+            }
+
+            .footer {
+                padding: 15px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            /* Mobile view */
+            .container {
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .header {
+                padding: 10px;
+            }
+
+            .header img {
+                width: 80px;
+            }
+
+            .header h1 {
+                font-size: 22px;
+            }
+
+            .content h2 {
+                font-size: 20px;
+            }
+
+            .content p {
+                font-size: 14px;
+            }
+
+            .task-details {
+                padding: 10px;
+                margin: 10px 0;
+            }
+
+            .footer {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://picsum.photos/100" alt="Company Logo">
+            <h1>Task Reminder</h1>
+        </div>
+        <div class="content">
+            <h2>Hello {{userName}},</h2>
+            <p>This is a friendly reminder for your task:</p>
+            <div class="task-details">
+                <p><strong>Task Title:</strong> {{taskTitle}}</p>
+            </div>
+            <p>Please ensure you complete it on time.</p>
+            <p>If you have any questions, feel free to contact us.</p>
+        </div>
+        <div class="footer">
+            <p>&copy; {{year}} All rights reserved.</p>
+        </div>
+    </div>
+</body>
+
+</html>
