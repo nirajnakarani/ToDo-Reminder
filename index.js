@@ -42,12 +42,12 @@ app.use(passport.setAuth)
 
 app.use("/", require("./routes/user"));
 
-cron.schedule("* * * * *", async () => {
-    await sendEmail()
-})
-// cron.schedule("0 0 * * *", async () => {
+// cron.schedule("* * * * *", async () => {
 //     await sendEmail()
 // })
+cron.schedule("0 0 * * *", async () => {
+    await sendEmail()
+})
 
 // ----- server connection -----
 

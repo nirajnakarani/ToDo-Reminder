@@ -15,59 +15,78 @@
 
 <body>
 
-    <main>
-        <div style="text-align: center;">
-            <h1 class="title"><span class="border-bottom">To Do List</span></h1>
-            <a href="/home" class="button">Add Task</a>
+    <div class="loader-main">
+        <div class="loader">
+            <div class="cube">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </div>
+    </div>
+    <div class="content" style="display: none;">
 
-        <div class="main">
-            <%for(var task of taskData){%>
+        <main>
+            <div style="text-align: center; margin-top: 30px;">
+                <h1 class="title"><span class="border-bottom">To Do List</span></h1>
+                <a href="/home" class="button">Add Task</a>
+            </div>
 
-                <div class="main-div">
-                    <div class="inner-div">
-                        <div class="task-main">
-                            <span>
-                                <%=task.title%>
-                            </span>
-                            <div class="d-flex ms-auto me-4" style="font-size: 14px;">
+            <div class="main">
+                <%for(var task of taskData){%>
 
-                                <% task.reminderDays.forEach((day, index) => {
-                                    const prevCompleted = index > 0 && task.reminderDays[index - 1].completed;
-                                    const isFirstAfterCompleted = prevCompleted && !task.reminderDays.slice(0, index).some((d, i) => i > 0 && task.reminderDays[i - 1].completed && !d.completed);
-                                    const isFirstDay = index === 0 && !day.completed;
-                                %>
-                                    <span class="<%= isFirstDay ? 'first-day-orange' : day.completed ? 'completed' : isFirstAfterCompleted ? 'next-after-completed' : '' %>">
-                                        <%= day.day %> Day
-                                    </span>
-                                <% }) %>
+                    <div class="main-div">
+                        <div class="inner-div">
+                            <div class="task-main">
+                                <span>
+                                    <%=task.title%>
+                                </span>
+                                <div class="d-flex ms-auto me-4" style="font-size: 14px;">
 
-                            </div>
+                                    <% task.reminderDays.forEach((day, index)=> {
+                                        const prevCompleted = index > 0 && task.reminderDays[index - 1].completed;
+                                        const isFirstAfterCompleted = prevCompleted && !task.reminderDays.slice(0,
+                                        index).some((d, i) => i > 0 && task.reminderDays[i - 1].completed &&
+                                        !d.completed);
+                                        const isFirstDay = index === 0 && !day.completed;
+                                        %>
+                                        <span
+                                            class="<%= isFirstDay ? 'first-day-orange' : day.completed ? 'completed' : isFirstAfterCompleted ? 'next-after-completed' : '' %>">
+                                            <%= day.day %> Day
+                                        </span>
+                                        <% }) %>
 
-                        </div>
-
-                        <div class="btn--delete btn-step" style="position: absolute;top: 0px;right: -4px;">
-                            <div class="btn-step-wrapper close">
-                                <div class="btn-step-icon close-icon">
-                                    <div class="x part-a"></div>
-                                    <div class="x part-b"></div>
                                 </div>
+
                             </div>
-                            <div class="btn-step-wrapper confirm">
-                                <a href="/deleteTask/?id=<%=task._id%>" class="btn-step-icon confirm-icon">
-                                    <div class="v part-a"></div>
-                                    <div class="v part-b"></div>
-                                </a>
-                                <div class="btn-corner"></div>
+
+                            <div class="btn--delete btn-step" style="position: absolute;top: 0px;right: -4px;">
+                                <div class="btn-step-wrapper close">
+                                    <div class="btn-step-icon close-icon">
+                                        <div class="x part-a"></div>
+                                        <div class="x part-b"></div>
+                                    </div>
+                                </div>
+                                <div class="btn-step-wrapper confirm">
+                                    <a href="/deleteTask/?id=<%=task._id%>" class="btn-step-icon confirm-icon">
+                                        <div class="v part-a"></div>
+                                        <div class="v part-b"></div>
+                                    </a>
+                                    <div class="btn-corner"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <%}%>
-        </div>
+                    <%}%>
+            </div>
 
-    </main>
+        </main>
+    </div>
 
 </body>
+<script src="/js/script.js" type="text/javascript"></script>
 
 </html>
